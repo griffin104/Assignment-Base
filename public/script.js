@@ -1,16 +1,18 @@
 async function windowActions() {
     console.log('load complete');
     const form = document.querySelector('.userform');
-    const search = document.querySelector('.search')
-    const suggestions = document.querySelector('.suggestions')
+    const search = document.querySelector('#search');
+    const suggestions = document.querySelector('.suggestions');
 
-    const endpoint = await fetch('/api');
-    const data = await endpoint.json();
-    const filtered = data.filter((record) => place.name.toUpperCase() === search.nodeValue.toUpperCase());
+    const searchBy = document.querySelector('#searchType')
+
+    // const endpoint = await fetch('/api');
+    // const data = await endpoint.json();
+    // const filtered = data.filter((record) => place.name.toUpperCase() === search.nodeValue.toUpperCase());
 
     let places = [];
 
-    function findMatches(search, plcaes) {
+    function findMatches(search, places) {
         return places.filter(place => {
             const regex = new RegExp(search, 'gi');
             return place.name.match(regex)
@@ -18,13 +20,13 @@ async function windowActions() {
     }
 
     function displayMatches() {
-        const matchArray = findMatches(search, places);
-        console.log(matchArray);
-        const html = matchArray.map(place)
+        // const matchArray = findMatches(search, places);
+        console.log(search.value);
+        // const html = matchArray.map(place);
     }
 
-    search.addEventListenter('change', displayMatches);
-    search.addEventListenter('keyup', displayMatches);
+    search.addEventListener('change', displayMatches);
+    search.addEventListener('keyup', displayMatches);
 
 //     form.addEventListener('submit', async (event) => ) {
 //         event.preventDefault();
@@ -33,4 +35,4 @@ async function windowActions() {
 //     }
 }
 
-
+window.onload = windowActions();
