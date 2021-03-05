@@ -1,16 +1,16 @@
  async function windowActions() {
-    console.log('load complete');
     const search = document.querySelector('#search');
     const radio = document.querySelector('#searchBy')
     const searchByName = document.querySelector('#name')
     const searchByFoodType = document.querySelector('#foodType')
     const searchByZipCode = document.querySelector('#zipCode')
+    const filteredList = document.querySelector('#filteredList')
 
     // const endpoint = await fetch('/api');
     // const data = await endpoint.json();
     // const filtered = data.filter((record) => place.name.toUpperCase() === search.nodeValue.toUpperCase());
 
-    let places = [];
+    let filteredPlaces = [];
     let searchType = 'name'
 
     fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json').then(blob => blob.json())
@@ -44,16 +44,34 @@
         }
     }
 
+    function removeChildren(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild)
+        }
+    }
+
     function displayMatches() {
         // const matchArray = findMatches(search, places);
         searchBy()
-        console.log(searchType);
         fetch("/api")
             .then(res => res.json())
             .then(json => {
-                console.log(json)
-            })
-        // const html = matchArray.map(place);
+                filteredPlaces = findMatches(search.value, json)
+
+        removeChildren(filteredList)
+        filteredPlaces.forEach(place => {
+            filteredList.insertAdjacentHTML('beforeend', `<li class='card mt-4'>
+            <div class="card-content">
+                <div class="content">
+                    <p class="title is-3">${place.name}</p>
+                    <p class="subtitle is-5">${place.category}</p>
+                    <address>${place.address_line_1}<br/>${place.address_line_2}<br/>
+                        ${place.city}, ${place.state}. ${place.zip}</address>
+                </div>
+            </div>
+            </li>`)
+    })
+    })
     }
 
     search.addEventListener('change', findMatches);
