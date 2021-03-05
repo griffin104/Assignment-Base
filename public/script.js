@@ -15,6 +15,11 @@
     let places = [];
     let searchType = 'name'
 
+    fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json').then(blob => blob.json())
+        .then(data => places.push(...data))
+    console.log(places)
+
+
     function findMatches(search, places) {
         return places.filter(place => {
             const regex = new RegExp(search, 'gi');
@@ -48,7 +53,7 @@
         // const html = matchArray.map(place);
     }
 
-    search.addEventListener('change', displayMatches);
+    search.addEventListener('change', findMatches);
     search.addEventListener('keyup', displayMatches);
     radio.addEventListener('change', displayMatches)
 
