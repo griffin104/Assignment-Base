@@ -2,9 +2,13 @@
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Lora&display=swap');
 
 $family-sans-serif: "Inter", "Lora", "Nunito", sans-serif;
 $family-primary: $family-sans-serif;
+
+.card {
+    background: linear-gradient(0deg, rgba(103,190,204,1) 0%, rgba(255,255,255,1) 0%, rgba(0,212,255,1) 100%);
+}
 
 @import "../node_modules/bulma/bulma.sass";

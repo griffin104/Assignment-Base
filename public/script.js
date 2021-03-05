@@ -1,9 +1,7 @@
  async function windowActions() {
     console.log('load complete');
-    const form = document.querySelector('.userform');
     const search = document.querySelector('#search');
     const radio = document.querySelector('#searchBy')
-    const suggestions = document.querySelector('.suggestions');
     const searchByName = document.querySelector('#name')
     const searchByFoodType = document.querySelector('#foodType')
     const searchByZipCode = document.querySelector('#zipCode')
@@ -50,6 +48,11 @@
         // const matchArray = findMatches(search, places);
         searchBy()
         console.log(searchType);
+        fetch("/api")
+            .then(res => res.json())
+            .then(json => {
+                console.log(json)
+            })
         // const html = matchArray.map(place);
     }
 
