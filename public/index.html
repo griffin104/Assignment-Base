@@ -14,19 +14,20 @@
         <div class="column is-one-quarter"></div>
         <div class="column">
             
+            <form>
             <div class="field">
                 <label class="label">Search by:</label>
-                <div class="control" id="searchType">
+                <div class="control" id="searchBy">
                     <label class="radio">
-                        <input type="radio" name="answer" id="name">
+                        <input type="radio" name="answer" id="name" checked>
                         Name
                     </label>
                     <label class="radio">
-                        <input type="radio" name="answer">
+                        <input type="radio" name="answer" id="foodType">
                         Restaurant Type
                     </label>
                     <label class="radio">
-                        <input type="radio" name="answer">
+                        <input type="radio" name="answer" id="zipCode">
                         Zip Code
                     </label>
                 </div>
@@ -37,6 +38,7 @@
                     <input class="input" type="text" id="search" placeholder="Search Here">
                 </div>
              </div>
+            </form>
 
         </div>
         <div class="column is-one-quarter"></div>
