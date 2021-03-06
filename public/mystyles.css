@@ -2,7 +2,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Lora&display=swap");
 .card {
-  background: linear-gradient(0deg, #67becc 0%, white 0%, #00d4ff 100%); }
+  background: linear-gradient(15deg, tan 0%, white 0%, tan 100%);
+  border: 2px solid brown; }
+
+body {
+  background: beige; }
+
+.columns {
+  font-weight: bold; }
+
+label {
+  font-weight: bold; }
 
 /*! bulma.io v0.9.2 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
