@@ -2,7 +2,7 @@
   "name": "inst377-fa2020",
   "version": "1.0.0",
   "description": "Base application package for assignments in INST377 at UMD",
-  "main": "public/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "node --experimental-modules lab_utils/html_validation_error_gen.js",
