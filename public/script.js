@@ -6,10 +6,6 @@
     const searchByZipCode = document.querySelector('#zipCode')
     const filteredList = document.querySelector('#filteredList')
 
-    // const endpoint = await fetch('/api');
-    // const data = await endpoint.json();
-    // const filtered = data.filter((record) => place.name.toUpperCase() === search.nodeValue.toUpperCase());
-
     let filteredPlaces = [];
     let searchType = 'name'
 
@@ -46,7 +42,6 @@
     }
 
     function displayMatches() {
-        // const matchArray = findMatches(search, places);
         searchBy()
         fetch("/api")
             .then(res => res.json())
@@ -69,15 +64,9 @@
     })
     }
 
-    search.addEventListener('change', displayMatches);
+    search.addEventListener('change', findMatches);
     search.addEventListener('keyup', displayMatches);
     radio.addEventListener('change', displayMatches)
-
-//     form.addEventListener('submit', async (event) => ) {
-//         event.preventDefault();
-//         console.log('Submission made: ', search.value)
-//         const filtered = data.filter((record) => record.city.toUpperCase() === search.nodeValue.toUpperCase());
-//     }
 }
 
 window.onload = windowActions();

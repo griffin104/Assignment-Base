@@ -12,7 +12,20 @@ $beige-lighter: #EFF0EB;
 $body-background-color: $beige-lighter;
 
 .card {
-    background: linear-gradient(0deg, rgba(103,190,204,1) 0%, rgba(255,255,255,1) 0%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(15deg, tan 0%, white 0%, tan 100%);
+    border: 2px solid brown;
+}
+
+body {
+    background: beige;
+}
+
+.columns {
+    font-weight: bold;
+}
+
+label {
+    font-weight: bold;
 }
 
 
